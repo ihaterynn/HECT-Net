@@ -18,6 +18,8 @@
 /diagrams/
 /figures/
 /plots/
+/HECTNet/hect_netperformance/
+/HECTNet/hectnet_performance/
 
 # Python cache files
 __pycache__/
