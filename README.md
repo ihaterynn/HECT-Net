@@ -1,6 +1,8 @@
 # 🍱 Snackly – Malaysian Food Recognition & Nutrition Estimation App
 
+### 📊 Dataset
 [📂 Malaysia Food-11 Dataset on Kaggle](https://www.kaggle.com/datasets/karkengchan/malaysia-food-11?resource=download)  
+### 🔗 Baseline Reference Model
 [🔗 EHFRNet GitHub Repository (Backbone Inspiration)](https://github.com/LduIIPLab/CVnets)
 
 ---
@@ -120,15 +122,26 @@ Make sure you have:
 - Flutter installed (`flutter doctor`)
 - A working Chrome browser for web preview
 
-### 📁 Step 1: Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/snackly.git
-cd snackly
+```
+### Step 2: Install Dependencies
 
-cd backend
+```bash
 pip install -r requirements.txt
-python hectnet_server.py
+```
+### Step 3: HECT-Net Backend Setup
 
+```bash
+cd backend
+python hectnet_server.py
+```
+
+### Step 4: Start the Flutter App
+
+```bash
 cd frontend
 flutter run -d chrome
+```
