@@ -125,7 +125,7 @@ Make sure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/snackly.git
+git clone https://github.com/ihaterynn/HECT-Net.git
 ```
 ### Step 2: Install Dependencies
 
