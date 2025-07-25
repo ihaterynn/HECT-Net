@@ -75,7 +75,7 @@ HECTNet is a custom-built model tailored for mobile-friendly food recognition. I
 
 - 📦 **Malaysia Food-11** (Kaggle):  
   https://www.kaggle.com/datasets/karkengchan/malaysia-food-11?resource=download
-- Images resized to **224x224**
+- Images resized to **256x256**
 - Data augmentation applied:
   - Random rotation, flips, brightness/contrast shifts
 - Train/Validation Split: **80% / 20%**
