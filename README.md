@@ -17,10 +17,12 @@ This project is designed to support health-conscious users in their dietary trac
 
 ## 🧠 HECTNet – Hybrid Efficient CNN-Transformer Network
 
+![HECTNet Architecture](assets/HECT-Net%20Architecture.png)
+
 HECTNet is a custom-built model tailored for mobile-friendly food recognition. It consists of:
 
 - **Main Branch**:
-  - **Backbone**: MobileNetV2 + LP-ViT (Location-Preserving ViT)
+  - **Backbone**: MobileNetV2 + LP-ViT (Location-Preserving ViT) contained within HBlocks (Hybrid Blocks)
   - Extracts **semantic** global context from food images
 - **Auxiliary Branch**:
   - Gabor-based handcrafted texture features across multiple scales
@@ -31,7 +33,36 @@ HECTNet is a custom-built model tailored for mobile-friendly food recognition. I
 - **Classifier**:
   - Final fused vector (160D) passed into a fully connected layer → softmax prediction
 
-> 💡 **“Aha! Moment”** is the coined term describing the model’s critical moment of insight during fusion—where it contextually understands which food-identifying cues matter most.
+> 💡 **"Aha! Moment"** is the coined term describing the model's critical moment of insight during fusion—where it contextually understands which food-identifying cues matter most.
+
+---
+
+## 🔄 Technical Pipeline Process
+
+![Technical Pipeline](assets/Technical%20Pipeline.png)
+
+The technical pipeline illustrates the step-by-step process of HECTNet's dual-branch architecture:
+
+### 1. **Projection to Common Latent Space**
+- **Main Embedding (M)**: 320-dimensional features from MobileNetV2 + LP-ViT backbone
+- **Auxiliary Embedding (A)**: 32-dimensional Gabor-based texture features
+- Both embeddings are projected to a unified 160-dimensional latent space through linear transformations
+
+### 2. **Bidirectional Cross-Attention**
+- **Main attends to Aux**: Semantic features query texture information for fine-grained details
+- **Aux attends to Main**: Texture features query semantic context for global understanding
+- Multi-head attention mechanism enables dynamic feature prioritization
+
+### 3. **Fusion and Final Processing**
+- Attended features are combined with original projections: `Mproj + M_attended` and `Aproj + A_attended`
+- Layer normalization stabilizes the fused representations
+- Element-wise averaging creates the final unified embedding (μfused, 160-dim)
+
+### 4. **Classification**
+- Feed-forward network processes the fused embedding
+- Softmax activation produces final food category predictions
+
+This pipeline ensures that both semantic understanding and texture analysis contribute optimally to the final classification decision.
 
 ---
 
