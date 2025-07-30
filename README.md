@@ -15,7 +15,7 @@ This project is designed to support health-conscious users in their dietary trac
 
 ---
 
-## 🧠 HECTNet – Hybrid Efficient CNN-Transformer Network
+## 🧠 HECTNet – Hybrid Efficient Color-Texture Network (TBC)
 
 ![HECTNet Architecture](assets/HECT-Net%20Architecture.png)
 
